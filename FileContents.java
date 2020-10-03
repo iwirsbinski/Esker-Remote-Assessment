@@ -15,7 +15,7 @@ public class FileContents {
 			File file = new File(filename);
 			scnr = new Scanner(file);
 		} catch (FileNotFoundException e) {
-			System.out.print("Error: File name not found.");
+			System.out.println("Error: File name not found.");
 			return;
 		}
 		
@@ -32,7 +32,7 @@ public class FileContents {
 		while (scnr.hasNextLine()) {
 			String line = scnr.nextLine();
 			numLines++;
-			int wordStartIndex = 0;
+			int wordStartIndex = 0; // starting index of the current word
 			int puncCount = 0; // count for number of punctuation/special characters in the current word
 			if (line.length() == 0) { continue; }
 			for (int i = 0; i < line.length(); i++) {
@@ -50,6 +50,7 @@ public class FileContents {
 					// find length of the new word
 					int wordLength = i - wordStartIndex;
 					addCount(wordLengths, puncCount, wordLength);
+					// completed a word, so update start index and punctuation count
 					wordStartIndex = i + 1;
 					puncCount = 0;
 				}
@@ -61,6 +62,7 @@ public class FileContents {
 			numWords++; // increment once for the final word in the line
 			int wordLength = line.length() - wordStartIndex;
 			addCount(wordLengths, puncCount, wordLength);
+			// completed a word, so update start index and punctuation count
 			wordStartIndex = 0;
 			puncCount = 0;
 			
