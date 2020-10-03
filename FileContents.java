@@ -48,12 +48,33 @@ public class FileContents {
 				else if (Character.isWhitespace(cur)) {
 					numOther++;
 					numWords++;
+					// find length of the new word
+					int wordLength = i - wordStartIndex;
+					// increment count for this word, or add new key if not present
+					if (wordLengths.containsKey(wordLength)) {
+						int prevCount = wordLengths.get(wordLength);
+						wordLengths.replace(wordLength, prevCount + 1);
+					}
+					else {
+						wordLengths.put(wordLength, 1);
+					}
+					wordStartIndex = i + 1;
 				}
 				else {
 					numOther++;
 				}
 			}
 			numWords++; // increment once for the final word in the line
+			int wordLength = line.length() - 1 - wordStartIndex;
+			// increment count for this word, or add new key if not present
+			if (wordLengths.containsKey(wordLength)) {
+				int prevCount = wordLengths.get(wordLength);
+				wordLengths.replace(wordLength, prevCount + 1);
+			}
+			else {
+				wordLengths.put(wordLength, 1);
+			}
+			wordStartIndex = 0;
 			
 		}
 		
@@ -68,7 +89,7 @@ public class FileContents {
 		for (Map.Entry pair : wordLengths.entrySet()) {
 			int length = (Integer) pair.getKey();
 			int number = (Integer) pair.getValue();
-			System.out.print("Number of " + length + "letter words: ");
+			System.out.print("Number of " + length + " letter words: ");
 			System.out.println(number);
 		}
 	}
