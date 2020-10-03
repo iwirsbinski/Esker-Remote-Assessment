@@ -34,6 +34,7 @@ public class FileContents {
 			numLines++;
 			int wordStartIndex = 0;
 			int puncCount = 0; // count for number of punctuation/special characters in the current word
+			if (line.length() == 0) { continue; }
 			for (int i = 0; i < line.length(); i++) {
 				char cur = line.charAt(i);
 				if (!Character.isWhitespace(cur)) { numChars++; }

@@ -7,3 +7,94 @@ Whitespace is not counted in the total character count.
 Contractions' length are counted as such: "can't" is a 4 letter word
 All special characters don't count toward a word's letter count. Therefore, a word such as ":)" is counted as word, but is considered
 a "0 letter word."
+
+input file: testfile.txt
+
+output:
+Number of lines: 3
+Number of chatacters: 80
+Number of letters: 69
+Number of figures: 3
+Number of other characters: 8
+Number of words: 19
+Number of 0 letter words: 1
+Number of 1 letter words: 2
+Number of 2 letter words: 3
+Number of 3 letter words: 3
+Number of 4 letter words: 5
+Number of 5 letter words: 2
+Number of 6 letter words: 1
+Number of 9 letter words: 1
+Number of 10 letter words: 1
+
+
+input file: testfile2.txt
+
+output:
+umber of lines: 3
+Number of chatacters: 204
+Number of letters: 197
+Number of figures: 0
+Number of other characters: 7
+Number of words: 30
+Number of 34 letter words: 1
+Number of 2 letter words: 1
+Number of 3 letter words: 7
+Number of 4 letter words: 12
+Number of 5 letter words: 3
+Number of 6 letter words: 3
+Number of 7 letter words: 2
+Number of 45 letter words: 1
+
+
+input file: testfile_long.txt
+
+output:
+Number of lines: 12
+Number of chatacters: 1370
+Number of letters: 1344
+Number of figures: 0
+Number of other characters: 26
+Number of words: 274
+Number of 1 letter words: 10
+Number of 2 letter words: 32
+Number of 3 letter words: 53
+Number of 4 letter words: 45
+Number of 5 letter words: 29
+Number of 6 letter words: 33
+Number of 7 letter words: 26
+Number of 8 letter words: 24
+Number of 9 letter words: 12
+Number of 10 letter words: 6
+Number of 11 letter words: 2
+Number of 12 letter words: 2
+
+
+input file: testfile_longer.txt
+
+output:
+Number of lines: 370
+Number of chatacters: 90530
+Number of letters: 88096
+Number of figures: 7
+Number of other characters: 2427
+Number of words: 20147
+Number of 0 letter words: 835
+Number of 1 letter words: 558
+Number of 2 letter words: 4553
+Number of 3 letter words: 3532
+Number of 4 letter words: 3150
+Number of 5 letter words: 1741
+Number of 6 letter words: 1485
+Number of 7 letter words: 1217
+Number of 8 letter words: 910
+Number of 9 letter words: 942
+Number of 10 letter words: 566
+Number of 11 letter words: 382
+Number of 12 letter words: 155
+Number of 13 letter words: 93
+Number of 14 letter words: 12
+Number of 15 letter words: 10
+Number of 16 letter words: 2
+Number of 17 letter words: 2
+Number of 18 letter words: 2
