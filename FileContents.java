@@ -26,18 +26,17 @@ public class FileContents {
 		int numOther = 0; // number of other characters
 		int numWords = 0; // number of words
 		
-
 		// counts for each length of word present
 		HashMap<Integer, Integer> wordLengths = new HashMap<Integer, Integer>();
-		
 		
 		while (scnr.hasNextLine()) {
 			String line = scnr.nextLine();
 			numLines++;
 			int wordStartIndex = 0;
+			int puncCount = 0; // count for number of punctuation/special characters in the current word
 			for (int i = 0; i < line.length(); i++) {
-				numChars++;
 				char cur = line.charAt(i);
+				if (!Character.isWhitespace(cur)) { numChars++; }
 				
 				if (Character.isLetter(cur)) {
 					numLetters++;
@@ -46,35 +45,23 @@ public class FileContents {
 					numFigures++;
 				}
 				else if (Character.isWhitespace(cur)) {
-					numOther++;
 					numWords++;
 					// find length of the new word
 					int wordLength = i - wordStartIndex;
-					// increment count for this word, or add new key if not present
-					if (wordLengths.containsKey(wordLength)) {
-						int prevCount = wordLengths.get(wordLength);
-						wordLengths.replace(wordLength, prevCount + 1);
-					}
-					else {
-						wordLengths.put(wordLength, 1);
-					}
+					addCount(wordLengths, puncCount, wordLength);
 					wordStartIndex = i + 1;
+					puncCount = 0;
 				}
 				else {
 					numOther++;
+					puncCount++;
 				}
 			}
 			numWords++; // increment once for the final word in the line
-			int wordLength = line.length() - 1 - wordStartIndex;
-			// increment count for this word, or add new key if not present
-			if (wordLengths.containsKey(wordLength)) {
-				int prevCount = wordLengths.get(wordLength);
-				wordLengths.replace(wordLength, prevCount + 1);
-			}
-			else {
-				wordLengths.put(wordLength, 1);
-			}
+			int wordLength = line.length() - wordStartIndex;
+			addCount(wordLengths, puncCount, wordLength);
 			wordStartIndex = 0;
+			puncCount = 0;
 			
 		}
 		
@@ -92,5 +79,21 @@ public class FileContents {
 			System.out.print("Number of " + length + " letter words: ");
 			System.out.println(number);
 		}
+	}
+	
+	// helper function to add a word to the count corresponding to its length
+	private static void addCount(HashMap<Integer, Integer> wordLengths, 
+			int puncCount, int wordLength) {
+		
+		wordLength = wordLength - puncCount;
+		if (wordLengths.containsKey(wordLength)) {
+			int prevCount = wordLengths.get(wordLength);
+			wordLengths.replace(wordLength, prevCount + 1);
+		}
+		else {
+			wordLengths.put(wordLength, 1);
+		}
+		
+		return;
 	}
 }
