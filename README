@@ -7,8 +7,7 @@ A few notes:
 
 Whitespace is not counted in the total character count.
 Contractions' length are counted as such: "can't" is a 4 letter word
-All special characters don't count toward a word's letter count. Therefore, a word such as ":)" is counted as word, but is considered
-a "0 letter word."
+All special characters don't count toward a word's letter count. Therefore, a word such as ":)" is counted as word, but is considered a "0 letter word."
 
 input file: testfile.txt
 
