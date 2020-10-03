@@ -1,6 +1,8 @@
 Compile with: "javac FileContents.java"
 Run with: "java FileContents <filename>
 
+This program took me approximately 3 hours to complete.
+
 A few notes:
 
 Whitespace is not counted in the total character count.
